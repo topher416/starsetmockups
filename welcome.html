@@ -203,6 +203,48 @@
             box-shadow: 0 8px 25px rgba(189, 133, 252, 0.3);
         }
 
+        /* Video Section */
+        .video-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(249, 144, 98, 0.5), rgba(242, 116, 186, 0.5), rgba(189, 133, 252, 0.5), transparent);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
         /* News Section */
         .news-section {
             background: rgba(255, 255, 255, 0.05);
@@ -323,6 +365,20 @@
             <button class="submit-btn">
                 ✓ Submit
             </button>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/BECNQHvQTOw" 
+                    title="Price Transparency Dashboard Overview" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    class="video-iframe">
+                </iframe>
+            </div>
         </div>
 
         <div class="news-section">
