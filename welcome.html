@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Transparency Dashboard - Welcome</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0F0F23 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Starfield background effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+                radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent),
+                radial-gradient(2px 2px at 160px 30px, rgba(255,255,255,0.2), transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: conic-gradient(from 0deg, #F99062, #F274BA, #E17AD1, #D07FE5, #BD85FC, #B385FB, #9D8AFA, #838CF8, #F99062);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #F99062, #F274BA, #E17AD1, #BD85FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 14px;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(249, 144, 98, 0.5), rgba(242, 116, 186, 0.5), rgba(189, 133, 252, 0.5), transparent);
+        }
+
+        .welcome-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #F99062, #F274BA, #E17AD1, #BD85FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .setup-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #BD85FC;
+            box-shadow: 0 0 0 3px rgba(189, 133, 252, 0.2);
+        }
+
+        .form-select option {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #F99062, #F274BA, #BD85FC);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(189, 133, 252, 0.3);
+        }
+
+        /* News Section */
+        .news-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .news-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #F99062, #F274BA, #E17AD1, #BD85FC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            border-left: 3px solid #BD85FC;
+            transition: all 0.3s ease;
+        }
+
+        .news-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-left-color: #F274BA;
+        }
+
+        .news-date {
+            font-weight: 700;
+            color: #BD85FC;
+            min-width: 80px;
+            font-size: 14px;
+        }
+
+        .news-content {
+            flex: 1;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .setup-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .welcome-title {
+                font-size: 24px;
+            }
+
+            .welcome-section {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">Starset Analytics</span>
+            </div>
+            <h1 class="header-title">Price Transparency Dashboard</h1>
+            <div class="user-info">
+                <span>Welcome, Carlos Pravia</span>
+                <span>👤</span>
+                <span>❓</span>
+                <span>🔄</span>
+            </div>
+        </header>
+
+        <div class="welcome-section">
+            <h2 class="welcome-title">Welcome, HFMA user!</h2>
+            <p class="welcome-subtitle">
+                Please take a moment to set your initial default values. This is a one-time setup process and won't be required the next time you log in.
+            </p>
+            <p class="welcome-subtitle">
+                If you have any questions or need assistance, please contact your administrator.
+            </p>
+
+            <form class="setup-form">
+                <div class="form-group">
+                    <label class="form-label">State</label>
+                    <select class="form-select">
+                        <option>Select a State</option>
+                        <option>California</option>
+                        <option>Texas</option>
+                        <option>New York</option>
+                        <option>Florida</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Facility Name</label>
+                    <select class="form-select">
+                        <option>Select a Facility</option>
+                        <option>General Hospital</option>
+                        <option>Medical Center</option>
+                        <option>Regional Clinic</option>
+                    </select>
+                </div>
+            </form>
+
+            <button class="submit-btn">
+                ✓ Submit
+            </button>
+        </div>
+
+        <div class="news-section">
+            <h3 class="news-title">Latest News & Updates</h3>
+            
+            <div class="news-item">
+                <div class="news-date">2025-06-01:</div>
+                <div class="news-content">New data features have been added to the dashboard.</div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">2025-05-20:</div>
+                <div class="news-content">The facility selection has been improved for better performance.</div>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-date">2025-05-10:</div>
+                <div class="news-content">Upcoming: New visualization filters will be available soon.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
