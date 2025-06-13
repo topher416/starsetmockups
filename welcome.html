@@ -45,15 +45,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 36px 20px;
+            padding: 36px 40px;
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 22px;
+            flex-shrink: 0;
         }
 
         .logo-image {
@@ -66,6 +68,9 @@
             font-size: 36px;
             font-weight: 600;
             color: #475569;
+            text-align: center;
+            flex: 1;
+            margin: 0 40px;
         }
 
         .user-info {
@@ -74,6 +79,7 @@
             gap: 27px;
             font-size: 25px;
             color: #64748b;
+            flex-shrink: 0;
         }
 
         .header-icon {
