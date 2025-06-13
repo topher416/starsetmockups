@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Price Transparency Dashboard - Welcome</title>
+    <title>Price Transparency Dashboard - Welcome (Light Mode)</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 20px;
         }
 
         body {
@@ -17,23 +25,29 @@
             color: #1e293b;
             min-height: 100vh;
             position: relative;
+            margin: 0;
+            padding: 0;
         }
 
-        .container {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
+        /* Header - Full Width */
         .header {
+            background: white;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, #F99062, #F274BA, #BD85FC) 1;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            width: 100%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
@@ -404,8 +418,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
+    <div class="header">
+        <div class="header-content">
             <div class="logo">
                 <!-- Replace with the new HFMA collaboration logo -->
                 <img src="assets/images/logos/starset-hfma-logo.png" alt="Starset Analytics in collaboration with HFMA" class="logo-image">
@@ -417,7 +431,10 @@
                 <img src="assets/images/icons/help-icon.png" alt="Help" class="header-icon">
                 <img src="assets/images/icons/refresh-icon.png" alt="Refresh" class="header-icon">
             </div>
-        </header>
+        </div>
+    </div>
+
+    <div class="container">
 
         <div class="main-content">
             <div class="welcome-section">
@@ -459,7 +476,7 @@
             <div class="video-section">
                 <div class="video-container">
                     <iframe 
-                        src="https://www.youtube.com/embed/kplzIk6xpRc" 
+                        src="https://www.youtube.com/embed/BECNQHvQTOw" 
                         title="Price Transparency Dashboard Overview" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
