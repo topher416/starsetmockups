@@ -150,7 +150,12 @@
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
         }
-
+       .login-buttons-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
         /* Hero Section */
         .hero {
             padding: 3rem 0 6rem;
@@ -626,7 +631,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+       <section class="hero">
         <div class="hero-grid"></div>
         <div class="container">
             <div class="hero-content">
@@ -634,6 +639,8 @@
                     <div class="badge">The Future of Healthcare Analytics</div>
                     <h1 class="hero-title">Refined Pricing Intelligence for Healthcare</h1>
                     <p class="hero-subtitle">Built by industry actuaries and data engineers. Chosen by healthcare innovators.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-outline btn-lg">Learn More</button>
                     </div>
                 </div>
                 <div class="hero-chart">
