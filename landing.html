@@ -19,14 +19,22 @@
             --text-gray-300: #d1d5db;
             --text-gray-400: #9ca3af;
             --text-gray-500: #6b7280;
-            --indigo-400: #818cf8;
-            --indigo-500: #6366f1;
-            --indigo-600: #4f46e5;
-            --purple-400: #c084fc;
-            --purple-500: #a855f7;
-            --purple-600: #9333ea;
-            --pink-400: #f472b6;
-            --border-color: rgba(99, 102, 241, 0.3);
+            
+            /* New gradient colors */
+            --coral-orange: #F99062;
+            --hot-pink: #F274BA;
+            --light-purple: #BD85FC;
+            --periwinkle-blue: #838CF8;
+            
+            /* Legacy variables updated to use new colors */
+            --indigo-400: #838CF8;
+            --indigo-500: #BD85FC;
+            --indigo-600: #F274BA;
+            --purple-400: #BD85FC;
+            --purple-500: #F274BA;
+            --purple-600: #F99062;
+            --pink-400: #F274BA;
+            --border-color: rgba(131, 140, 248, 0.3);
         }
 
         body {
@@ -77,14 +85,14 @@
             gap: 0.5rem;
             font-size: 1.25rem;
             font-weight: bold;
-            background: linear-gradient(to right, var(--indigo-400), var(--purple-400), var(--pink-400));
+            background: linear-gradient(135deg, var(--coral-orange), var(--hot-pink), var(--light-purple), var(--periwinkle-blue));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .logo-img {
-            height: 150px;
+            height: 108px;
             width: auto;
         }
 
@@ -120,22 +128,22 @@
         }
 
         .btn-primary {
-            background: linear-gradient(to right, var(--indigo-600), var(--purple-600));
+            background: linear-gradient(135deg, var(--hot-pink), var(--light-purple));
             color: white;
         }
 
         .btn-primary:hover {
-            background: linear-gradient(to right, var(--indigo-500), var(--purple-500));
+            background: linear-gradient(135deg, var(--coral-orange), var(--hot-pink));
         }
 
         .btn-outline {
-            border: 1px solid rgba(99, 102, 241, 0.5);
-            color: var(--indigo-400);
+            border: 1px solid rgba(131, 140, 248, 0.5);
+            color: var(--periwinkle-blue);
             background: transparent;
         }
 
         .btn-outline:hover {
-            background: rgba(99, 102, 241, 0.1);
+            background: rgba(131, 140, 248, 0.1);
         }
 
         .btn-lg {
@@ -147,7 +155,7 @@
         .hero {
             padding: 3rem 0 6rem;
             position: relative;
-            background: radial-gradient(circle at 50% 50%, rgba(109, 40, 217, 0.6) 0%, rgba(79, 70, 229, 0.3) 45%, rgba(0, 0, 0, 0) 100%);
+            background: radial-gradient(circle at 50% 50%, rgba(249, 144, 98, 0.4) 0%, rgba(242, 116, 186, 0.3) 25%, rgba(189, 133, 252, 0.2) 50%, rgba(131, 140, 248, 0.1) 75%, rgba(0, 0, 0, 0) 100%);
         }
 
         .hero-grid {
@@ -176,9 +184,9 @@
             display: inline-block;
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
-            background: linear-gradient(to right, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
-            color: var(--indigo-400);
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            background: linear-gradient(135deg, rgba(249, 144, 98, 0.2), rgba(189, 133, 252, 0.2));
+            color: var(--periwinkle-blue);
+            border: 1px solid rgba(131, 140, 248, 0.3);
             border-radius: 9999px;
             margin-bottom: 1rem;
         }
@@ -187,7 +195,7 @@
             font-size: 3rem;
             font-weight: bold;
             line-height: 1.1;
-            background: linear-gradient(to right, var(--indigo-400), var(--purple-400), var(--pink-400));
+            background: linear-gradient(135deg, var(--coral-orange), var(--hot-pink), var(--light-purple), var(--periwinkle-blue));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -332,9 +340,9 @@
             display: inline-block;
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
-            background: linear-gradient(to right, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
-            color: var(--indigo-400);
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            background: linear-gradient(135deg, rgba(249, 144, 98, 0.2), rgba(189, 133, 252, 0.2));
+            color: var(--periwinkle-blue);
+            border: 1px solid rgba(131, 140, 248, 0.3);
             border-radius: 9999px;
             margin-bottom: 1rem;
         }
@@ -343,7 +351,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             line-height: 1.2;
-            background: linear-gradient(to right, var(--indigo-400), var(--purple-400), var(--pink-400));
+            background: linear-gradient(135deg, var(--coral-orange), var(--hot-pink), var(--light-purple), var(--periwinkle-blue));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -652,14 +660,14 @@
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.5rem;">
                                         <polygon points="5,3 19,12 5,21"/>
                                     </svg>
-                                    Watch Demo
+                                    The Starset Analytics Approach
                                 </div>
                                 <div class="video-duration">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.25rem;">
                                         <circle cx="12" cy="12" r="10"/>
                                         <polyline points="12,6 12,12 16,14"/>
                                     </svg>
-                                    2:30
+                                    3:00
                                 </div>
                             </div>
                         </div>
