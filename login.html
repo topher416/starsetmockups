@@ -69,13 +69,13 @@
       }
 
       .logo-wrapper img {
-        width: 610px;
+        width: 310px;
         height: auto;
         margin-bottom: 0.85rem;
       }
 
       .logo-wrapper .brand-tagline {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
         letter-spacing: 0.06em;
         background: linear-gradient(135deg, var(--coral-orange), var(--hot-pink), var(--light-purple), var(--periwinkle-blue));
         -webkit-background-clip: text;
@@ -141,6 +141,27 @@
         transform: translateY(0);
       }
 
+      /* new CONTACT button variant */
+      .btn-contact {
+        display: inline-block;
+        margin-top: 1.75rem;
+        padding: 0.85rem 1.25rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border: none;
+        border-radius: 0.45rem;
+        cursor: pointer;
+        color: var(--text-light);
+        background: linear-gradient(135deg, var(--periwinkle-blue), var(--coral-orange));
+        transition: transform 0.2s, box-shadow 0.2s;
+        text-decoration: none;
+      }
+
+      .btn-contact:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(131, 140, 248, 0.35);
+      }
+
       .aux-link {
         margin-top: 1rem;
         font-size: 0.875rem;
@@ -184,6 +205,15 @@
         <button type="submit" class="btn-login">Login</button>
       </form>
       <p class="aux-link"><a href="#">Reset password</a></p>
+
+      <!-- Contact button new -->
+      <a
+        href="https://thirdhorizon.co/contact/"
+        class="btn-contact"
+        target="_blank"
+        rel="noopener"
+        >Contact Us</a
+      >
     </main>
 
     <!-- ================= STARFIELD SCRIPT (PINK GRADIENT STARS) ================= -->
