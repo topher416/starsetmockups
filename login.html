@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starset Analytics – Login</title>
 
-    <!-- Inter font to match the marketing page vibe -->
+    <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,13 +23,13 @@
         box-sizing: border-box;
       }
 
-      /* COLOR SYSTEM  — borrowed from the marketing page */
+      /* COLOR SYSTEM */
       :root {
         --bg-black: #000000;
         --bg-gray-900: #111827;
         --text-white: #ffffff;
         --text-gray-300: #d1d5db;
-        --border-color: rgba(131, 140, 248, 0.3);
+        --border-color: rgba(131, 140, 248, 0.35);
 
         /* Gradient palette */
         --coral-orange: #f99062;
@@ -44,14 +44,14 @@
       }
 
       body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
         background: var(--bg-black);
         color: var(--text-white);
-        overflow: hidden;
+        overflow: hidden; /* hide scrollbars created by particle canvas */
       }
 
-      /* ★ Particle Background */
+      /* ✨ Particle Background */
       #particles {
         position: fixed;
         inset: 0;
@@ -72,22 +72,22 @@
 
       .login-card {
         width: 100%;
-        max-width: 420px;
-        background: rgba(17, 24, 39, 0.85); /* gray‑900 with opacity */
+        max-width: 480px; /* ⬆︎ wider card */
+        background: rgba(17, 24, 39, 0.88); /* gray‑900 with opacity */
         border: 1px solid var(--border-color);
-        border-radius: 0.75rem;
-        backdrop-filter: blur(14px);
-        padding: 2rem 2rem 2.5rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+        border-radius: 0.9rem;
+        backdrop-filter: blur(16px);
+        padding: 2.25rem 2.25rem 2.75rem;
+        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
       }
 
       .logo {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
+        gap: 0.6rem;
+        margin-bottom: 1.8rem;
+        font-size: 1.65rem; /* ⬆︎ bigger text */
         font-weight: 600;
         background: linear-gradient(
           135deg,
@@ -102,52 +102,52 @@
       }
 
       .logo img {
-        height: 56px;
+        height: 60px;
         width: auto;
       }
 
       form {
         display: grid;
-        gap: 1.25rem;
+        gap: 1.35rem;
       }
 
       label {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
-        font-size: 0.875rem;
+        gap: 0.35rem;
+        font-size: 0.93rem;
         color: var(--text-gray-300);
       }
 
       input[type="email"],
       input[type="password"] {
-        padding: 0.75rem 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 0.5rem;
+        padding: 0.85rem 1rem;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 0.55rem;
         color: var(--text-white);
-        font-size: 1rem;
+        font-size: 1.05rem;
         transition: border 0.25s, box-shadow 0.25s;
       }
 
       input::placeholder {
-        color: rgba(255, 255, 255, 0.35);
+        color: rgba(255, 255, 255, 0.4);
       }
 
       input:focus {
         outline: none;
         border-color: var(--periwinkle-blue);
-        box-shadow: 0 0 0 2px rgba(131, 140, 248, 0.4);
+        box-shadow: 0 0 0 2px rgba(131, 140, 248, 0.5);
       }
 
       .btn-primary {
-        margin-top: 0.5rem;
+        margin-top: 0.6rem;
         width: 100%;
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
+        padding: 0.85rem 1rem;
+        font-size: 1.05rem;
         font-weight: 500;
         border: none;
-        border-radius: 0.5rem;
+        border-radius: 0.55rem;
         cursor: pointer;
         background: linear-gradient(
           135deg,
@@ -160,7 +160,7 @@
 
       .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(189, 133, 252, 0.35);
+        box-shadow: 0 10px 22px rgba(189, 133, 252, 0.4);
       }
 
       .btn-primary:active {
@@ -168,9 +168,9 @@
       }
 
       .secondary-link {
-        margin-top: 1rem;
+        margin-top: 1.2rem;
         text-align: center;
-        font-size: 0.875rem;
+        font-size: 0.9rem;
       }
 
       .secondary-link a {
@@ -183,8 +183,8 @@
         color: var(--hot-pink);
       }
 
-      /* Small screen optimizations */
-      @media (max-height: 700px) {
+      /* Small‑screen optimizations */
+      @media (max-height: 680px) {
         .login-card {
           max-height: calc(100dvh - 2rem);
           overflow-y: auto;
@@ -193,13 +193,12 @@
     </style>
   </head>
   <body>
-    <!-- ✨ Particle Background Canvas -->
+    <!-- Particle Background Canvas -->
     <canvas id="particles"></canvas>
 
     <main class="login-wrapper">
       <div class="login-card">
         <div class="logo">
-          <!-- Replace with your actual logo path -->
           <img
             src="assets/images/logos/starset-logo.png"
             alt="Starset Analytics logo"
@@ -239,7 +238,7 @@
     </main>
 
     <script>
-      /* ======= BASIC STAR / PARTICLE BACKGROUND ======= */
+      /* ===== Enhanced STAR / PARTICLE BACKGROUND ===== */
       const canvas = document.getElementById("particles");
       const ctx = canvas.getContext("2d");
       let particles = [];
@@ -251,17 +250,29 @@
 
       function createParticles() {
         particles = [];
-        const count = Math.min(120, (canvas.width * canvas.height) / 12000);
+        // more and brighter stars 🌌
+        const count = Math.min(250, (canvas.width * canvas.height) / 10000);
         for (let i = 0; i < count; i++) {
           particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 1.5 + 0.5,
-            speedX: (Math.random() - 0.5) * 0.3,
-            speedY: (Math.random() - 0.5) * 0.3,
-            opacity: Math.random() * 0.6 + 0.2,
+            size: Math.random() * 2 + 0.8, // ⬆︎ size range
+            speedX: (Math.random() - 0.5) * 0.25,
+            speedY: (Math.random() - 0.5) * 0.25,
+            opacity: Math.random() * 0.7 + 0.3, // ⬆︎ brighter
           });
         }
+      }
+
+      function drawStar(p) {
+        ctx.save();
+        ctx.shadowBlur = 6;
+        ctx.shadowColor = `rgba(131, 140, 248, ${p.opacity})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(131, 140, 248, ${p.opacity})`;
+        ctx.fill();
+        ctx.restore();
       }
 
       function animate() {
@@ -274,10 +285,7 @@
           if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
           if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
 
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(131, 140, 248, ${p.opacity})`;
-          ctx.fill();
+          drawStar(p);
         });
         requestAnimationFrame(animate);
       }
