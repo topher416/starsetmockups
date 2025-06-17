@@ -8,10 +8,7 @@
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
     <style>
       /* RESET */
@@ -23,15 +20,14 @@
         box-sizing: border-box;
       }
 
-      /* COLOR SYSTEM */
       :root {
-        --bg-black: #000000;
-        --bg-gray-900: #111827;
-        --text-white: #ffffff;
-        --text-gray-300: #d1d5db;
-        --border-color: rgba(131, 140, 248, 0.35);
+        --header-bg: #000000; /* deep space */
+        --body-bg: #f4f4f5;
+        --text-dark: #111111;
+        --text-light: #ffffff;
+        --border-gray: #d1d5db;
 
-        /* Gradient palette */
+        /* cosmic gradient palette */
         --coral-orange: #f99062;
         --hot-pink: #f274ba;
         --light-purple: #bd85fc;
@@ -41,261 +37,225 @@
       html,
       body {
         height: 100%;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: var(--body-bg);
+        color: var(--text-dark);
       }
 
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
-        background: var(--bg-black);
-        color: var(--text-white);
-        overflow: hidden; /* hide scrollbars created by particle canvas */
+      /* ===================== HEADER ===================== */
+      .hero-header {
+        position: relative;
+        height: 260px;
+        background: var(--header-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
       }
 
-      /* ✨ Particle Background */
-      #particles {
-        position: fixed;
+      #stars {
+        position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
-        z-index: -1;
+        z-index: 0;
       }
 
-      /* ================= LOGIN LAYOUT ================= */
-      .login-wrapper {
-        height: 100dvh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
+      .logo-wrapper {
+        position: relative;
+        z-index: 1;
+        text-align: center;
       }
 
-      .login-card {
-        width: 100%;
-        max-width: 1200px; /* ⬆︎ wider card */
-        background: rgba(17, 24, 39, 0.88); /* gray‑900 with opacity */
-        border: 1px solid var(--border-color);
-        border-radius: 0.9rem;
-        backdrop-filter: blur(16px);
-        padding: 2.25rem 2.25rem 2.75rem;
-        box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+      .logo-wrapper img {
+        width: 110px;
+        height: auto;
+        margin-bottom: 0.85rem;
       }
 
-      .logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.6rem;
-        margin-bottom: 1.8rem;
-        font-size: 1.65rem; /* ⬆︎ bigger text */
-        font-weight: 600;
-        background: linear-gradient(
-          135deg,
-          var(--coral-orange),
-          var(--hot-pink),
-          var(--light-purple),
-          var(--periwinkle-blue)
-        );
+      .logo-wrapper .brand-tagline {
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--coral-orange), var(--hot-pink), var(--light-purple), var(--periwinkle-blue));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
       }
 
-      .logo img {
-        height: 220px;
-        width: auto;
+      /* ===================== MAIN LOGIN AREA ===================== */
+      main.login-section {
+        max-width: 480px;
+        margin: 3rem auto 6rem;
+        padding: 0 1rem;
+        text-align: center;
       }
 
-      form {
+      form.login-form {
         display: grid;
-        gap: 1.35rem;
+        gap: 1.25rem;
       }
 
-      label {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        font-size: 0.93rem;
-        color: var(--text-gray-300);
-      }
-
-      input[type="email"],
-      input[type="password"] {
-        padding: 0.85rem 1rem;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 0.55rem;
-        color: var(--text-white);
-        font-size: 1.05rem;
-        transition: border 0.25s, box-shadow 0.25s;
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+        border: 1px solid var(--border-gray);
+        border-radius: 0.45rem;
+        background: #ffffff;
+        color: var(--text-dark);
+        transition: border 0.2s;
       }
 
       input::placeholder {
-        color: rgba(255, 255, 255, 0.4);
+        color: #9ca3af;
       }
 
       input:focus {
         outline: none;
         border-color: var(--periwinkle-blue);
-        box-shadow: 0 0 0 2px rgba(131, 140, 248, 0.5);
+        box-shadow: 0 0 0 2px rgba(131, 140, 248, 0.35);
       }
 
-      .btn-primary {
-        margin-top: 0.6rem;
-        width: 100%;
-        padding: 0.85rem 1rem;
-        font-size: 1.05rem;
+      .btn-login {
+        margin-top: 0.5rem;
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
         font-weight: 500;
         border: none;
-        border-radius: 0.55rem;
+        border-radius: 0.45rem;
         cursor: pointer;
-        background: linear-gradient(
-          135deg,
-          var(--hot-pink),
-          var(--light-purple)
-        );
-        color: var(--text-white);
-        transition: transform 0.25s, box-shadow 0.25s;
+        color: var(--text-light);
+        background: linear-gradient(135deg, var(--hot-pink), var(--light-purple));
+        transition: transform 0.2s, box-shadow 0.2s;
       }
 
-      .btn-primary:hover {
+      .btn-login:hover {
         transform: translateY(-2px);
-        box-shadow: 0 10px 22px rgba(189, 133, 252, 0.4);
+        box-shadow: 0 8px 18px rgba(189, 133, 252, 0.4);
       }
 
-      .btn-primary:active {
+      .btn-login:active {
         transform: translateY(0);
       }
 
-      .secondary-link {
-        margin-top: 1.2rem;
-        text-align: center;
-        font-size: 0.9rem;
+      .aux-link {
+        margin-top: 1rem;
+        font-size: 0.875rem;
       }
 
-      .secondary-link a {
+      .aux-link a {
         color: var(--periwinkle-blue);
         text-decoration: none;
-        transition: color 0.25s;
+        transition: color 0.2s;
       }
 
-      .secondary-link a:hover {
+      .aux-link a:hover {
         color: var(--hot-pink);
       }
 
-      /* Small‑screen optimizations */
-      @media (max-height: 680px) {
-        .login-card {
-          max-height: calc(100dvh - 2rem);
-          overflow-y: auto;
+      @media (max-width: 420px) {
+        .logo-wrapper img {
+          width: 90px;
+        }
+        main.login-section {
+          margin-top: 2rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Particle Background Canvas -->
-    <canvas id="particles"></canvas>
-
-    <main class="login-wrapper">
-      <div class="login-card">
-        <div class="logo">
-          <img
-            src="assets/images/logos/starset-logo.png"
-            alt="Starset Analytics logo"
-          />
-        </div>
-
-        <form action="#" method="post" autocomplete="off">
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-            />
-          </label>
-
-          <label>
-            Password
-            <input
-              type="password"
-              name="password"
-              placeholder="••••••••"
-              required
-            />
-          </label>
-
-          <button type="submit" class="btn-primary">Sign in</button>
-        </form>
-
-        <p class="secondary-link">
-          <a href="#">Reset password</a>
-        </p>
+    <!-- ================= HEADER WITH PINKISH STARFIELD ================= -->
+    <header class="hero-header">
+      <canvas id="stars"></canvas>
+      <div class="logo-wrapper">
+        <img src="assets/images/logos/starset-logo.png" alt="Starset logo" />
+        <div class="brand-tagline">REFINED PRICING INTELLIGENCE FOR HEALTHCARE</div>
       </div>
+    </header>
+
+    <!-- ================= MAIN LOGIN SECTION ================= -->
+    <main class="login-section">
+      <form class="login-form" action="#" method="post" autocomplete="off">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit" class="btn-login">Login</button>
+      </form>
+      <p class="aux-link"><a href="#">Reset password</a></p>
     </main>
 
+    <!-- ================= STARFIELD SCRIPT (PINK GRADIENT STARS) ================= -->
     <script>
-      /* ===== Enhanced STAR / PARTICLE BACKGROUND ===== */
-      const canvas = document.getElementById("particles");
-      const ctx = canvas.getContext("2d");
-      let particles = [];
+      const palette = [
+        "#f99062", // coral-orange
+        "#f274ba", // hot-pink
+        "#bd85fc", // light-purple
+        "#838cf8", // periwinkle-blue
+      ];
 
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+      const canvas = document.getElementById("stars");
+      const ctx = canvas.getContext("2d");
+      let stars = [];
+
+      function sizeCanvas() {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
       }
 
-      function createParticles() {
-        particles = [];
-        // more and brighter stars 🌌
-        const count = Math.min(250, (canvas.width * canvas.height) / 10000);
+      function initStars() {
+        stars = [];
+        const count = Math.min(150, (canvas.width * canvas.height) / 13000);
         for (let i = 0; i < count; i++) {
-          particles.push({
+          stars.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 2 + 0.8, // ⬆︎ size range
-            speedX: (Math.random() - 0.5) * 0.25,
-            speedY: (Math.random() - 0.5) * 0.25,
-            opacity: Math.random() * 0.7 + 0.3, // ⬆︎ brighter
+            r: Math.random() * 1.7 + 0.4,
+            dx: (Math.random() - 0.5) * 0.15,
+            dy: (Math.random() - 0.5) * 0.15,
+            o: Math.random() * 0.6 + 0.3,
+            c: palette[Math.floor(Math.random() * palette.length)],
           });
         }
       }
 
-      function drawStar(p) {
+      function drawStar(s) {
         ctx.save();
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = `rgba(131, 140, 248, ${p.opacity})`;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = `${s.c}aa`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(131, 140, 248, ${p.opacity})`;
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = s.c;
+        ctx.globalAlpha = s.o;
         ctx.fill();
         ctx.restore();
       }
 
       function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((p) => {
-          p.x += p.speedX;
-          p.y += p.speedY;
-
-          // bounce at edges
-          if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-          if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-          drawStar(p);
+        stars.forEach((s) => {
+          s.x += s.dx;
+          s.y += s.dy;
+          if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
+          if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+          drawStar(s);
         });
         requestAnimationFrame(animate);
       }
 
+      function setup() {
+        sizeCanvas();
+        initStars();
+        animate();
+      }
+
       window.addEventListener("resize", () => {
-        resizeCanvas();
-        createParticles();
+        sizeCanvas();
+        initStars();
       });
 
-      resizeCanvas();
-      createParticles();
-      animate();
+      setup();
     </script>
   </body>
 </html>
